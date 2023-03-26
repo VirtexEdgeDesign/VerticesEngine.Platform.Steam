@@ -173,15 +173,15 @@ namespace VerticesEngine.Platforms.Steam.Profile
             List<string> mods = new List<string>();
 
             // the first local list under 'My Games/...'
-            var regularList = vxContentPackManager.GetAvailableModsInPath(vxIO.PathToMods);
+            var regularList = vxPluginManager.GetAvailableModsInPath(vxIO.PathToMods);
             mods.AddRange(regularList);
-
+            
             // now get the 
             if (IsSignedIn && _steamClient.InstallFolder != null)
             {
                 DirectoryInfo dir = new DirectoryInfo(System.IO.Path.Combine(_steamClient.InstallFolder.FullName, "../../workshop/content", _steamClient.AppId.ToString()));
 
-                var steamList = vxContentPackManager.GetAvailableModsInPath(dir.FullName);
+                var steamList = vxPluginManager.GetAvailableModsInPath(dir.FullName);
                 mods.AddRange(steamList);
             }
             return mods.ToArray();

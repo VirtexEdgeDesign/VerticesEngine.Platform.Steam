@@ -1,6 +1,4 @@
-﻿#if __STEAM__ //  Only supported in the steam implementation
-
-using Lidgren.Network;
+﻿using Lidgren.Network;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -84,5 +82,3 @@ namespace VerticesEngine.Platforms.Steam.Networking
         }
     }
 }
-
-#endif
