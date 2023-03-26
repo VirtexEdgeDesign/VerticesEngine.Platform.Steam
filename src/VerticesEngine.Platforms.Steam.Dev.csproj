@@ -1,0 +1,92 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+  <TargetFramework>net6.0</TargetFramework>
+  <Configurations>Debug;Release</Configurations>
+  <AssemblyName>VerticesEngine.Platforms.Steam</AssemblyName>
+  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  <Authors>Virtex.Edge.Design</Authors>
+  <Company>Virtex Edge Design</Company>
+	<Version>0.1.0</Version>
+	<Product>Steam Platform API Wrapper</Product>
+  <Description>The Steam Platform wrapper support for the Vertices Engine.</Description>
+  <PackageId>VerticesEngine.Platforms.Steam</PackageId>
+  <PackageTags>MonoGame, GameEngine, IndieGames, Steam, Mods, Steamworks</PackageTags>
+  <PackageIcon>icon.png</PackageIcon>
+  <PackageReadmeFile>README.md</PackageReadmeFile>
+	<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+  <RepositoryUrl>https://github.com/VirtexEdgeDesign/VerticesEngine.Platform.Steam</RepositoryUrl>
+  <PackageProjectUrl>https://github.com/VirtexEdgeDesign/VerticesEngine.Platform.Steam</PackageProjectUrl>
+</PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>bin/$(Configuration)</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;</DefineConstants>
+    <OutputPath>bin/$(Configuration)</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+ <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+</PropertyGroup>
+  <ItemGroup>
+    <Content Include="./ref/*">
+        <Pack>true</Pack>
+        <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+</ItemGroup>
+  <ItemGroup>
+    <None Update="Facepunch.Steamworks.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="lib\steam\libsteam_api64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="5.0.1" />
+    <PackageReference Include="System.Management" Version="5.0.0" />
+    <PackageReference Include="VerticesEngine.Core.Desktop.GL" Version="2.0.0.4-alpha" />
+    <PackageReference Include="VerticesEngine.Net.Lidgren.Desktop" Version="1.1.0" />
+    <PackageReference Include="VerticesEngine.Physics.Bepu" Version="1.0.0" />
+    <PackageReference Include="VerticesEngine.Physics.Farseer" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Facepunch.Steamworks">
+      <HintPath>Facepunch.Steamworks.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="libopenal.1.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="libSDL2-2.0.0.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="libsteam_api.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="libsteam_api64.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="lib\steam\libsteam_api.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="lib\steam\libsteam_api64.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="steam_api.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="steam_api64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+		<None Include="..\LICENSE.md" Pack="true" PackagePath="\" />
+		<None Include="..\img\icon.png" Pack="true" PackagePath="\" />
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>
